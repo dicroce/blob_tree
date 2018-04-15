@@ -1,9 +1,5 @@
 # blob_tree
 
-JSON is great for a lot of reasons. One of the reasons it's great is that its trivial to assign property's to an object: just
-put the property's within the object. If you think about it a little bit you'll see that this structure can be represented with
-a tree.
-
 The goal of blob_tree is to bring the heirarchical tree like structure of JSON to the world of binary data.
 
     #include "blob_tree.h"

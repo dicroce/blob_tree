@@ -32,7 +32,7 @@ int main(int argc, char* argv[])
     auto bt2 = dicroce::blob_tree::deserialize(&serialized[0], serialized.size(), version);
 
     // fetching an item from the blob tree...
-    auto val = bt["blobs"]["b1"].get();
+    auto val = bt2["blobs"]["b1"].get();
 
     assert(memcmp(val.second, &b1[0], val.first) == 0);
 

@@ -23,6 +23,9 @@ int main(int argc, char* argv[])
     // Blobs can also be stored by array indexes.
     bt["blobs"]["container"][0] = make_pair(b3.size(), &b3[0]);
     bt["blobs"]["container"][1] = make_pair(b4.size(), &b4[0]);
+    
+    // Note: You can get the size of the array like this:
+    // bt["blobs"]["container"].size()
 
     // serialize() stores the whole blob tree and every added item to a vector
     // of bytes.

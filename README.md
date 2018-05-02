@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     // bt["blobs"]["container"].size()
 
     // serialize() stores the whole blob tree and every added item to a vector
-    // of bytes.
+    // of bytes. The final parameter here is a version number.
     vector<uint8_t> serialized = dicroce::blob_tree::serialize(bt, 1);
 
     uint32_t version;

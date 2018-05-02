@@ -1,6 +1,6 @@
 # blob_tree
 
-The goal of blob_tree is to bring the heirarchical tree like structure of JSON to the world of binary data.
+The goal of blob_tree is to bring the heirarchical tree like structure of JSON to the world of binary data. Put the header wherever is convenient for your project.
 
 ```cpp
 #include "blob_tree.h"

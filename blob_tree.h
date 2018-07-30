@@ -45,12 +45,14 @@ public:
         NT_LEAF
     };
 
-    static std::vector<uint8_t> serialize(const blob_tree& rt, uint32_t version)
+    static const uint32_t BT_VERSION = 1;
+
+    static std::vector<uint8_t> serialize(const blob_tree& rt)
     {
         auto size = sizeof(uint32_t) + _sizeof_treeb(rt);
         std::vector<uint8_t> buffer(size);
         uint8_t* p = &buffer[0];
-        uint32_t word = htonl(version);
+        uint32_t word = htonl(BT_VERSION);
         *(uint32_t*)p = word;
         p+=sizeof(uint32_t);
         // &buffer[size] is our sentinel (1 past the end)
@@ -58,12 +60,14 @@ public:
         return buffer;
     }
 
-    static blob_tree deserialize(const uint8_t* p, size_t size, uint32_t& version)
+    static blob_tree deserialize(const uint8_t* p, size_t size)
     {
         auto end = p + size;
         uint32_t word = *(uint32_t*)p;
         p+=sizeof(uint32_t);
-        version = ntohl(word);
+        uint32_t version = ntohl(word);
+        if(version != BT_VERSION)
+            throw std::runtime_error("blob_tree version mismatch.");
         blob_tree obj; 
         _read_treeb(p, end, obj);
         return obj;

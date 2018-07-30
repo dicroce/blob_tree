@@ -21,10 +21,9 @@ int main(int argc, char* argv[])
 
     // serialize() stores the whole blob tree and every added item to a vector
     // of bytes.
-    vector<uint8_t> serialized = dicroce::blob_tree::serialize(bt, 1);
+    vector<uint8_t> serialized = dicroce::blob_tree::serialize(bt);
 
-    uint32_t version;
-    auto bt2 = dicroce::blob_tree::deserialize(&serialized[0], serialized.size(), version);
+    auto bt2 = dicroce::blob_tree::deserialize(&serialized[0], serialized.size());
 
     // fetching an item from the blob tree...
     auto val = bt2["blobs"]["b1"].get();

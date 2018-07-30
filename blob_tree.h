@@ -122,6 +122,7 @@ private:
 
         return sum;
     }
+
     static size_t _write_treeb(const blob_tree& rt, uint8_t* p, uint8_t* end)
     {
         uint8_t* fp = p;
@@ -186,6 +187,7 @@ private:
 
         return p - fp;
     }
+
     static size_t _read_treeb(const uint8_t* p, const uint8_t* end, blob_tree& rt)
     {
         if(_bytes_left(p, end) < 5)
@@ -247,6 +249,7 @@ private:
 
         return p - fp;
     }
+
     inline static size_t _bytes_left(const uint8_t* p, const uint8_t* end) { return end - p; }
 
     std::map<std::string, blob_tree> _children;

@@ -11,12 +11,12 @@ int main(int argc, char* argv[])
     dicroce::blob_tree bt;
 ```
 
-Next, prepare some example blobs to insert.
+Next, prepare a blob to insert.
 
 ```cpp
     vector<uint8_t> b1 = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 ```
-Create a node called "blobs" and store two blobs ("b1" and "b2") under it. Note here that you never had to prespecify a schema. You just
+Create a node called "blobs" and store a blob ("b1") under it. Note here that you never had to specify a schema. You just
 start using the [] operator and storing blobs in named locations.
 ```cpp
     bt["blobs"]["b1"] = make_pair(b1.size(), &b1[0]); // data is inserted as a pair of pointer and size variables
